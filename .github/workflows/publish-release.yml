@@ -7,6 +7,9 @@ on:
 jobs:
   publish_stable:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # 允許 action 寫入 repository 的內容，包括建立 release
+      pull-requests: write # 如果需要自動讀取 pull request 資訊，也需要這個權限
     steps:
       - uses: actions/checkout@v3
       - name: Publish Stable Release
